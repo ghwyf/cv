@@ -1,0 +1,273 @@
+$base: 1000px;
+//未编译样式
+body {
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.t-l {
+  text-align: left;
+}
+
+.t-c {
+  text-align: center;
+}
+
+.t-r {
+  text-align: right;
+}
+
+//自身居中  不适合做弹框
+.v-center {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+//子居中 适合做弹框
+.v-parent {
+  position: absolute;
+  .v-child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+.space-bg{
+  width: 200%;
+  height: 200%;
+  background-image: url('../assets/image/space.png');
+  animation: rotate-Z 12s ease-in-out infinite;
+  position: fixed;
+  z-index: -400;
+
+}
+.space {
+  // background-color: #000;
+  position: fixed;
+  z-index: -400;
+}
+
+//ship light
+.shell-bottom{
+  width: $base/10*8;
+  height: $base/10*3.1;
+  border-radius: 50%;
+  z-index: -301;
+  .shell-light{
+    width: $base/10*8;
+    height: $base/10*3.5;
+    border-radius: 50%;
+    animation: light 12s ease infinite;
+  }
+}
+//ship inside sight
+.shell {
+  width: $base/10*8;
+  height: $base/10*3.5;
+  transform: scaleX(1.3);
+  border-radius: 50%;
+  position: fixed;
+  background-image: -webkit-linear-gradient(0, #f0f0f0, #888888);
+  box-shadow: inset 130px 0 85px 0, 0 1px 20px 0;
+  color: #f0f0f0;
+  z-index: -300;
+  overflow: hidden;
+}
+
+.inner-bottom{
+  width: $base/10*8;
+  height: $base/10*1.5;
+  border-radius: 50%;
+  position: fixed;
+  background-color: #dbecff;
+  box-shadow: inset 0px 30px 0px 0px #c4d5ff;
+}
+.dome-half-top{
+  width: $base/10*8;
+  height: $base/10*3;
+  border-radius: 50%/100% 100% 0 0;
+  background-image: -webkit-linear-gradient(360deg, rgba(173,222,255,.3), rgba(17,107,161,.3));
+  position: fixed;
+  transform: translateY( -$base/10*1.5);
+  .main-screen {
+    width: $base/10*4;
+    height: $base/10*2;
+    background-color: rgb(87, 129, 126);
+    position: fixed;
+    transform: translateY(30px);
+  }
+  .dome-half-bottom {
+    width: $base/10*8;
+    height: $base/10*0.75;
+    border-radius: 50%/100% 100% 0 0;
+    background-image: -webkit-linear-gradient(360deg, #106ba2, #addeff);
+    position: relative;
+    opacity: .3;
+    transform: translateY($base/10*3) rotateZ(180deg);
+  }
+}
+
+.shell-decrations {
+  width: 200vw;
+  height: 200vw;
+  border-radius: 200vw;
+  position: fixed;
+  z-index: -300;
+  overflow: hidden;
+
+}
+.facula {
+  width: 40vh;
+  height: 40vh;
+  border-radius: 40vh;
+  transform: rotateX(68deg) translateY(26vw) translateX(50vw) rotateY(-26deg) scale(1.2);
+  animation: light 12s ease-in-out infinite;
+  background-color: #fff;
+  position: fixed;
+  box-shadow: inset 0 0 55px 49px #ecf4ff, 2px 10px 15px 1px #000;
+}
+
+.inner {
+  width: 200vw;
+  height: 200vw;
+  border-radius: 200vw;
+  background-color: #fff;
+  position: absolute;
+  transform: rotateX(45deg) translateY(3vw) translateX(-50vw);
+  box-shadow: 6vh -1vh 80px 2px rgba(26, 27, 30, 0.52);
+  border-top: 8px solid #959595;
+  .main-screen {
+    width: 50vw;
+    height: 40vw; // border: 1px solid #959595;
+    background-color: rgba(157, 199, 255, .2);
+    position: relative;
+    top: -31vw;
+    left: 0;
+    margin: 0 auto;
+  }
+} //ship dome
+.am-one {
+  animation: sunrise 12s ease-in-out infinite;
+}
+
+@keyframes sunrise {
+  0% {
+    transform: rotateX(0) rotateX(-1deg);
+  }
+  50% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: rotateX(0) rotateX(1deg);
+  }
+}
+@keyframes rotate-Z {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(360deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+@keyframes light {
+  0% {
+    box-shadow: 0 10px 60px 0 #fff,inset 0 -50px 0 10px #fff;
+  }
+  10% {
+    box-shadow: 0 9px 60px 0 rgb(243, 211, 211),inset 0 -50px 0 0 rgb(243, 211, 211);
+  }
+  20% {
+    box-shadow: 0 8px 60px 0 rgb(247, 236, 214),inset 0 -50px 0 0 rgb(247, 236, 214);
+  }
+  30% {
+    box-shadow: 0 7px 60px 0 rgb(215, 245, 187),inset 0 -50px 0 0 rgb(215, 245, 187);
+  }
+  40% {
+    box-shadow: 0 5px 60px 0 rgb(211, 235, 192),inset 0 -50px 0 0 rgb(211, 235, 192);
+  }
+  50% {
+    box-shadow: 0 3px 60px 0 rgb(192, 235, 219),inset 0 -50px 0 0 rgb(192, 235, 219);
+  }
+  60% {
+    box-shadow: 0 5px 60px 0 rgb(219, 236, 255),inset 0 -50px 0 0 rgb(219, 236, 255);
+  }
+  70% {
+    box-shadow: 0 7px 60px 0 rgb(188, 181, 230),inset 0 -50px 0 0 rgb(188, 181, 230);
+  }
+  80% {
+    box-shadow: 0 8px 60px 0 rgb(232, 196, 236),inset 0 -50px 0 0 rgb(232, 196, 236);
+  }
+  90% {
+    box-shadow: 0 9px 60px 0 rgb(235, 199, 220),inset 0 -50px 0 0 rgb(235, 199, 220);
+  }
+  100% {
+    box-shadow: 0 10px 60px 0 #fff,inset 0 -50px 0 0 #fff;
+  }
+  
+}
+
+
+
+
+
+.form{
+  width:408px;
+  height:200px;
+  background:#2f2f2f;
+  position:relative;
+  overflow:hidden;
+  margin:30px auto;
+}
+.corner{
+  background:-webkit-linear-gradient(45deg, #2e2e2e 24%, #5F5F5F 40%,#6f6f6f 43%,#5F5F5F 46%,#2F2F2F 50%,#fff 50%,#fff);
+  background:-moz-linear-gradient(45deg, #2e2e2e 24%, #5F5F5F 40%,#6f6f6f 43%,#5F5F5F 46%,#2F2F2F 50%,#fff 50%,#fff);height:90px;
+  background:-o-linear-gradient(45deg, #2e2e2e 24%, #5F5F5F 40%,#6f6f6f 43%,#5F5F5F 46%,#2F2F2F 50%,#fff 50%,#fff);height:90px;
+  background:-ms-linear-gradient(45deg, #2e2e2e 24%, #5F5F5F 40%,#6f6f6f 43%,#5F5F5F 46%,#2F2F2F 50%,#fff 50%,#fff);height:90px;
+  background:linear-gradient(45deg, #2e2e2e 24%, #5F5F5F 40%,#6f6f6f 43%,#5F5F5F 46%,#2F2F2F 50%,#fff 50%,#fff);height:90px;
+  width:90px;
+  height:90px;
+  border-radius:0 0 0px 90px / 0 0 0 30px;
+  -webkit-transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  -o-transform:rotate(-90deg);
+  -ms-transform:rotate(-90deg);
+  transform:rotate(-90deg);
+  position:absolute;
+  left:-4px;
+  top:-4px;
+  box-shadow:5px 2px 8px black;
+  overflow:hidden;
+}
+.corner:after{
+  height:100%;
+  width:100%;
+  position:absolute;
+  content:"";
+  top:-15px;
+  left:-82px;
+  border-radius:90px 90px 0px 0 / 40px 40px 0 0;
+  z-index:1;
+  background:#2F2F2F;
+  -webkit-transform:rotate(77deg);
+  -moz-transform:rotate(77deg);
+  -o-transform:rotate(77deg);
+  -ms-transform:rotate(77deg);
+  transform:rotate(77deg);
+  box-shadow:0px 0px 8px black inset;
+}
