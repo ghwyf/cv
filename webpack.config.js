@@ -11,6 +11,21 @@ const extractSass = new ExtractTextPlugin({
 const PROD = process.env.NODE_ENV === "production";
 console.log(`environment:${process.env.NODE_ENV}`);
 console.log(`platform:${process.platform}`);
+
+const plugins = [
+  //每次打包清空dist文件夹
+  // new CleanWebpackPlugin(['dist']),
+  //单页应用 指定入口html文件 
+  new HtmlWebpackPlugin({
+    template: './src/index.html'
+  }),
+  extractSass,
+];
+//如果是环境不是linux且不是编译发布,需要每次清空dist文件
+if(process.platform != 'linux' || !PROD){
+  plugins.push(new CleanWebpackPlugin(['dist']));
+}
+
 //开发环境 线上dev设置为true
 module.exports = {
   entry: './src/ts/bootstrap',
@@ -48,13 +63,5 @@ module.exports = {
     filename: 'bundle'+(PROD ? '.[chunkhash]' : '')+'.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    //每次打包清空dist文件夹
-    new CleanWebpackPlugin(['dist']),
-    //单页应用 指定入口html文件 
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
-    extractSass,
-  ]
+  plugins
 };
