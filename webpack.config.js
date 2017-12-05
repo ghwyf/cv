@@ -8,8 +8,9 @@ const extractSass = new ExtractTextPlugin({
   filename: "[name].[contenthash].min.css",
   disable: process.env.NODE_ENV === "development"
 });
-const PROD = process.env.NODE_ENV === "development";
-console.log('-----------------------------------------------------\n'+process.env.NODE_ENV+'\n-----------------------------------------------------')
+const PROD = process.env.NODE_ENV === "production";
+console.log(`environment:${process.env.NODE_ENV}`);
+console.log(`platform:${process.platform}`);
 //开发环境 线上dev设置为true
 module.exports = {
   entry: './src/ts/bootstrap',

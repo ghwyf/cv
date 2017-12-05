@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "set NODE_ENV=development && webpack-dev-server --inline --hot --config webpack.config.js",
-    "watch": "set NODE_ENV=development && webpack --watch",
-    "build": "set NODE_ENV=production && webpack -p"
+    "start": "set NODE_ENV=development&& webpack-dev-server --inline --hot --config webpack.config.js",
+    "watch": "set NODE_ENV=development&& webpack --watch",
+    "dev-build": "set NODE_ENV=production&& webpack -p",
+    "prod-build": "export NODE_ENV=production&& webpack -p"
   },
   "author": "",
   "license": "ISC",
