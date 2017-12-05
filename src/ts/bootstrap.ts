@@ -10,6 +10,7 @@ class BootStrap {
   private canvas = document.getElementById('space');
   private bg = new Universe(this.canvas, window.innerWidth, window.innerHeight);
   constructor() {
+    console.log('bootstrap');
     this.bg.paintStars();
     this.screenAdjust();
   }
