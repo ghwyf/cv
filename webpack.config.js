@@ -17,7 +17,9 @@ const plugins = [
   // new CleanWebpackPlugin(['dist']),
   //单页应用 指定入口html文件 
   new HtmlWebpackPlugin({
-    template: './src/index.html'
+    template: './src/index.html',
+    favicon:'./src/favicon.ico',
+    cache:false,
   }),
   extractSass,
 ];
