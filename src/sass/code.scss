@@ -45,15 +45,6 @@ body {
 .hidden {
   display: none;
 }
-.space-bg{
-  width: 200%;
-  height: 200%;
-  background-image: url('../assets/image/space.png');
-  animation: rotate-Z 12s ease-in-out infinite;
-  position: fixed;
-  z-index: -400;
-
-}
 .space {
   // background-color: #000;
   position: fixed;
@@ -172,17 +163,6 @@ body {
   }
   100% {
     transform: rotateX(0) rotateX(1deg);
-  }
-}
-@keyframes rotate-Z {
-  0% {
-    transform: rotateZ(0);
-  }
-  50% {
-    transform: rotateZ(360deg);
-  }
-  100% {
-    transform: rotateZ(0);
   }
 }
 @keyframes light {
